@@ -12,7 +12,7 @@ if(!token){
 
 const decode = jwt.verify(token, process.env.SECRET_KEY);
 const foundUser = await User.findOne({_id: decode.id})
-if(!foudUser){
+if(!foundUser){
     return res.status(400).json({errors:[{message:"User not found"}]});
 }
 
@@ -25,4 +25,4 @@ next()
 }
 
 
-module.exports=isAuth;
+module.exports = isAuth;

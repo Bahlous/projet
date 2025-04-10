@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import{Form, Button} from 'react-bootstrap';
 import {useDispatch} from 'react-redux';
 import {register} from "../JS/actions/authAction";
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
   const [newUser, setNewUser] = useState({
     name:"", email:"", password:"", phone:""
   });
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   // console.log(newUser);
   const handleChange = (e) =>{
     setNewUser({...newUser, [e.target.name]: e.target.value});
   };
   const handleRegister = (e) => {
     e.preventDefault();
-    dispatch(register(newUser));
+    dispatch(register(newUser, navigate ));
+    navigate("/profile");
   };
   return (
     <div className='page container'>

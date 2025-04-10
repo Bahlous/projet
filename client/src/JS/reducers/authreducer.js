@@ -35,7 +35,7 @@ const authReducer = (state = initialState, { type, payload }) => {
     case FAIL_AUTH:
       return { ...state, isLoad: false, errors: payload };
     case CURRENT_AUTH:
-      return { ...state, isLoad: false, user: payload.user, isAuth: true };
+      return { ...state, isLoad: false, user: payload, isAuth: true };
     case LOGOUT_AUTH:
       localStorage.removeItem("token");
       return { user: {}, errors: [], success: [], isAuth: false };

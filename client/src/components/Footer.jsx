@@ -1,19 +1,20 @@
 import React from 'react';
 import{Card} from 'react-bootstrap';
+import "../App.css";
 const Footer = () => {
   return (
     <div>
     {" "}
     <Card>
-    <Card.Header>Quote</Card.Header>
+    <Card.Header>See you soon</Card.Header>
     <Card.Body>
       <blockquote className="blockquote mb-0">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          posuere erat a ante.
+        Contact US if you need something: 28042666
         </p>
         <footer className="blockquote-footer">
-          Someone famous in <cite title="Source Title">Source Title</cite>
+        &copy; 2025 rights deserved
+        
         </footer>
       </blockquote>
     </Card.Body>

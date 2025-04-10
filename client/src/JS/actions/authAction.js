@@ -3,22 +3,25 @@ import axios from 'axios'
 
 
 //action to register a new user
-export const register = (newUser) => async(dispatch)=>{
+export const register = (newUser, navigate) => async(dispatch)=>{
 dispatch({type: LOAD_AUTH});
 try {
     const result = await axios.post('/api/auth/register', newUser)
-    dispatch({type:SUCCESS_AUTH, payload:result.data})
+    dispatch({type:SUCCESS_AUTH, payload:result.data});
+    navigate("/profile");
 } catch (error) {
     dispatch({type:FAIL_AUTH, payload:error.response.result.errors})
 }
 
 };
 //action to sign in an existing user in DB
-export const login = (user)=> async(dispatch) => {
+export const login = (user, navigate)=> async(dispatch) => {
     dispatch({type: LOAD_AUTH});
     try {
     const result = await axios.post('/api/auth/login', user);
     dispatch({type:SUCCESS_AUTH, payload: result.data});
+    navigate("/profile");
+    
 } catch (error) {
     dispatch({type:FAIL_AUTH, payload:error.response.result.errors});
 }
@@ -40,6 +43,7 @@ export const current = ()=> async(dispatch) => {
     }
 };
 //remove token (sign out)
-export const logout = () =>(dispatch) => {
+export const logout = (navigate) =>(dispatch) => {
 dispatch({type:LOGOUT_AUTH});
+navigate("/")
 };

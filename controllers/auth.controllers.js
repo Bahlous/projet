@@ -5,7 +5,8 @@ var jwt = require('jsonwebtoken');
 exports.register = async (req, res) => {
 try {
     const {name , email, password, phone} = req.body;
-const foundUser = await User.findOne({email})
+    console.log(req.body);
+const foundUser = await User.findOne({email});
 if(foundUser) {
     return  res.status(400).json({errors:[{message:"Email should be unique!"}]});
 }
@@ -38,7 +39,7 @@ exports.login = async(req, res)=>{
         }
         const token = jwt.sign({id: foundUser._id},
             process.env.SECRET_KEY,
-            {expiresIn:"1h"}
+            {expiresIn:"2h"}
         );
         res.status(200).json({success:[{message: "login successfully"}], user:foundUser, token})
     } catch (error) {
