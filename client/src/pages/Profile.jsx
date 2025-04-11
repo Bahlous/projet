@@ -27,15 +27,15 @@ const Profile = () => {
   };
 
   const handleAddProd = (e) => {
-    // e.preventDefault();
-    // dispatch(addProduct(newprod));
-    // handleClose();
-    // setNewprod({
-    //   title: "",
-    //   description: "",
-    //   price: "",
-    //   image: "",
-    // });
+    e.preventDefault();
+    dispatch(addProduct(newprod));
+    handleClose();
+    setNewprod({
+      title: "",
+      description: "",
+      price: "",
+      image: "",
+    });
   };
 
   useEffect(() => {

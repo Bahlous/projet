@@ -21,7 +21,7 @@ export const addProduct = (newProd) => async (dispatch) => {
      };
     const result = await axios.post("/api/product/addProd", newProd, config);
     dispatch({ type: ADD_PRODUCT, payload: result.data });
-    dispatch(getAllProd());
+    dispatch(getMyProd());
   } catch (error) {
     dispatch({ type: FAIL_PRODUCT, payload: error.response.data });
   }
