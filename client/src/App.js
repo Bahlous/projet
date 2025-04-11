@@ -15,9 +15,9 @@ import Dashboard from './pages/Dashboard';
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(state=>state.authReducer.isAuth)
-  console.log(isAuth);
+  // console.log(isAuth);
   const user = useSelector(state=>state.authReducer.user)
-  console.log(user);
+  // console.log(user);
   useEffect(() => {
     if(localStorage.getItem("token")){
       dispatch(current());
