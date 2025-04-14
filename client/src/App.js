@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { current } from './JS/actions/authAction';
 import Dashboard from './pages/Dashboard';
 
+
+
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(state=>state.authReducer.isAuth)
